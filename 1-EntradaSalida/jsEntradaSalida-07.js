@@ -56,6 +56,6 @@ function dividir()
 
 	resultado = num1/num2;
 
-	alert(`La division es: ${resultado}`);
+	alert(`La division es: ${resultado.toFixed(2)}`);
 }
 
