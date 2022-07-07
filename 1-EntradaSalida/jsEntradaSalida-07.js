@@ -51,8 +51,8 @@ function dividir()
 	let num2; 
 	let resultado;
 
-	num1 = parseInt(document.getElementById("txtIdNumeroUno").value);
-	num2 = parseInt(document.getElementById("txtIdNumeroDos").value);
+	num1 = parseFloat(document.getElementById("txtIdNumeroUno").value);
+	num2 = parseFloat(document.getElementById("txtIdNumeroDos").value);
 
 	resultado = num1/num2;
 
