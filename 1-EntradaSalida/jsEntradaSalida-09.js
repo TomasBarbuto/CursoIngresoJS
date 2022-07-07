@@ -7,15 +7,18 @@ function mostrarAumento()
 {
 	//Declaro variables
 	let sueldo;
+	let aumento;
 	let resultado;
 
 	//asigno a la variable el valor ingresado en caja con .value
-	sueldo = document.getElementById("txtIdSueldo").value;
+	sueldo = parseInt(document.getElementById("txtIdSueldo").value);
+	
+	aumento = sueldo * 0.10;
 
 	//Relizamos el calculo
-	resultado = parseInt(sueldo)*1.10;
+	resultado = sueldo + aumento;
 
-	//Imprimo por ID el resultado.
+	
 	document.getElementById("txtIdResultado").value = resultado;
 
 }
