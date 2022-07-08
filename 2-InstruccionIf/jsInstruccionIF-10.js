@@ -8,7 +8,7 @@ function mostrar()
 	max = 10;
 	nota = Math.round(Math.random()*(max - min)+min);
 
-	if(nota == 10){
+	if(nota >= 9){
 		alert(`${nota} Excelente`);
 	}else if(nota >= 4){
 		alert(`${nota} Aprobo`);
