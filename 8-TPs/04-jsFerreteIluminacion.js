@@ -51,9 +51,13 @@ function CalcularPrecio ()
     }else if(cantidadDeLamparas == 3 && (marca != "ArgentinaLuz" || marca != "FelipeLamparas")){
         descuento = precioFinal * 5 / 100;
         precioConDescuento = precioFinal - descuento;
+    }else if(cantidadDeLamparas <= 2){
+        precioConDescuento = precioFinal;
     }
     
-
     document.getElementById("txtIdprecioDescuento").value = precioConDescuento;
-    
+    if(precioConDescuento >= 120){
+        impuestoIngresosBrutos = precioFinal*ingresosBrutos/100;
+        alert(`Usted pago ${impuestoIngresosBrutos} de IIBB.`);
+    }
 }
