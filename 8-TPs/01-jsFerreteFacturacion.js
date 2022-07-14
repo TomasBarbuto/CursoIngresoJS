@@ -8,14 +8,47 @@ function Sumar () {
     let precioUno;
     let precioDos;
     let precioTres;
+    let resultado;
+
+    precioUno = parseInt(document.getElementById("txtIdPrecioUno").value);
+    precioDos = parseInt(document.getElementById("txtIdPrecioDos").value);
+    precioTres = parseInt(document.getElementById("txtIdPrecioTres").value);
+
+    resultado = precioUno + precioDos + precioTres;
     
-	
+    alert(`La suma es: ${resultado}`);
 }
-function Promedio () 
-{
-	
+function Promedio () {
+
+    let precioUno;
+    let precioDos;
+    let precioTres;
+    let resultado;
+
+    precioUno = parseInt(document.getElementById("txtIdPrecioUno").value);
+    precioDos = parseInt(document.getElementById("txtIdPrecioDos").value);
+    precioTres = parseInt(document.getElementById("txtIdPrecioTres").value);
+
+	resultado = (precioUno + precioDos + precioTres) / 3;
+
+    alert(`El promedio es: ${resultado}`);
 }
-function PrecioFinal () 
-{
+function PrecioFinal () {
+
+    let precioUno;
+    let precioDos;
+    let precioTres;
+    const IVA = 0.21
+    let resultado;
+
+    precioUno = parseInt(document.getElementById("txtIdPrecioUno").value);
+    precioDos = parseInt(document.getElementById("txtIdPrecioDos").value);
+    precioTres = parseInt(document.getElementById("txtIdPrecioTres").value);
+
+    resultado = (precioUno + precioDos + precioTres);
+    resultado = resultado * IVA + resultado;
+
+    alert(`El precio final es: ${resultado}`);
+
 	
 }
