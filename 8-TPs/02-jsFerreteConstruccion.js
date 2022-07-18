@@ -11,6 +11,7 @@ function Rectangulo () {
     let ancho;
     let perimetro;
 
+    largo =
     
 
 }
