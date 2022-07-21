@@ -7,7 +7,8 @@ function mostrar(){
 
 	sexoIngresado = prompt("ingrese F para femenino ó M para masculino");
 
-	while(!(sexoIngresado != "F" || sexoIngresado != "M")||!(sexoIngresado != "f" || sexoIngresado != "m")){
+	while(sexoIngresado != "m" || sexoIngresado != "f"){
+		
 		sexoIngresado = prompt("No es valido, ingrese nuevamente");
 
 	}

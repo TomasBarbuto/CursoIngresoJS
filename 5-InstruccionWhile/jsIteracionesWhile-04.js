@@ -8,9 +8,10 @@ function mostrar() {
 
 	numero = parseInt(prompt("Ingrese un numero entre 0 y 9"));
 
-	while (!(numero >= 0 && numero <= 9)) {
+	while (numero < 0 || numero > 9) {
+
 		numero = prompt("No es un numero valido, ingrese uno nuevo");
-	
+
 	}
 	document.getElementById("txtIdNumero").value = numero;
 
