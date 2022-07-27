@@ -12,6 +12,9 @@ function mostrar() {
     let cantidadNegativos;
     let promedioPositivos;
     let promedioNegativos;
+    let numeroMaximo;
+    let numeroMinimo;
+    let flag;
 
     cantidadPares = 0;
     cantidadImpares = 0;
@@ -20,6 +23,7 @@ function mostrar() {
     cantidadNegativos = 0;
     AcumuladorNegativo = 0;
     AcumuladorPositivo = 0;
+    flag = 0;
 
     do {
 
@@ -28,6 +32,14 @@ function mostrar() {
         } while (isNaN(datoNumero) || datoNumero < -100 || datoNumero > 100);
 
         datoLetra = prompt("Ingrese una letra de A a Z");
+
+        if (flag == 0) {
+
+            numeroMaximo = datoNumero;
+            numeroMinimo = datoNumero;
+
+            flag = 1;
+        }
 
         if (datoNumero % 2 == 0) {
             cantidadPares++
@@ -61,7 +73,8 @@ function mostrar() {
     console.log(`Cantidad de ceros = ${cantidadCeros}`);
     console.log(`Promedio de numeros Positivos ${promedioPositivos}`);
     console.log(`Promedio de numero Negativos ${promedioNegativos}`);
-
+    console.log(`Numero maximo ingresado: ${numeroMaximo}`);
+    console.log(`Numero minimo ingresado: ${numeroMinimo}`);
 
 
 }
