@@ -59,7 +59,6 @@ function NumerosDivisibles() {
     let ingreseUnNumero;
 
     cantidadNumerosDivisibles = 0;
-
     ingreseUnNumero = parseInt(document.getElementById("txtIdNumero").value);
 
     if (ingreseUnNumero < 0) {
@@ -86,8 +85,7 @@ function VerificarPrimo() {
     cantidadDivisores = 0;
     ingreseUnNumero = parseInt(document.getElementById("txtIdNumero").value);
 
-   
-
+    
     if (ingreseUnNumero < 0) {
         alert("Ingrese un numero positivo");
     } else {

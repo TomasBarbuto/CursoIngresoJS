@@ -1,4 +1,3 @@
-
 /*
 Debemos realizar la carga de 5(cinco) productos de prevención de contagio,
 de cada una debo obtener los siguientes datos:
@@ -11,117 +10,113 @@ a) Del más barato de los alcohol, la cantidad de unidades y el fabricante
 b) Del tipo con mas unidades, el promedio por compra
 c) Cuántas unidades de jabones hay en total
  */
-function mostrar()
-{
-	let tipo;
-	let precio;
-	let cantidad;
-	let marca;
-	let fabricante;
-	let alcoholMasBarato;
-	let cantidadAlcoholMasBarato;
+function mostrar() {
+
+	let tipoDeProdcuto;
+	let precioDeProducto;
+	let cantidadDeUnidadesDeProducto;
+	let marcaDelProducto;
+	let fabricanteDelProducto;
+	let flag;
+	let precioAlcoholMasBarato;
+	let cantidadAlcoholMasBarato
 	let fabricanteAlcoholMasBarato;
-	let cantidadTotalJabones;
-	let cantidadTotalBarbijos;
-	let cantidadTotalAlcohol;
-	let cantidadDeComprasAlcohol;
-	let cantidadDeComprasBarbijos;
-	let cantidadDeComprasJabones;
-	let primerAlcohol;
+	let acumuladorAlcohol;
+	let acumuladorJabon;
+	let acumuladorBarbijo;
+	let contadorAlcohol;
+	let contadorJabon;
+	let contadorBarbijo;
+	let tipoConMasUnidades;
+	let promedioDeCompraMayorUnidades;
 
-	alcoholMasBarato = 0;
-	fabricanteAlcoholMasBarato = "";
-	cantidadAlcoholMasBarato = 0;
+	flag = 0;
 
+	acumuladorAlcohol = 0;
+	contadorAlcohol = 0;
 
-	cantidadTotalJabones = 0;
-	cantidadTotalBarbijos = 0;
-	cantidadTotalAlcohol = 0;
+	acumuladorAlcoholMasBarato = 0;
+	precioAlcoholMasBarato = 0;
 
-	cantidadDeComprasAlcohol = 0;
-	cantidadDeComprasBarbijos = 0;
-	cantidadDeComprasJabones = 0;
+	acumuladorBarbijo = 0;
+	contadorBarbijo = 0;
 
-	primerAlcohol = "si";
+	acumuladorJabon = 0;
+	contadorJabon = 0;
 
+	for (let i = 0; i < 2; i++) {
 
-	for(let i = 0; i<3 ; i++){
+		do {
 
-		tipo = prompt("Ingrese el tipo de producto");
+			tipoDeProdcuto = prompt("Ingrese tipo de producto");
 
-		while(tipo != "barbijo" && tipo != "jabón" && tipo != "alcohol"){
-			tipo = prompt("Ingrese el tipo de producto");
-		}
+		} while (tipoDeProdcuto != "barbijo" && tipoDeProdcuto != "alcohol" && tipoDeProdcuto != "jabon")
 
-		precio = parseInt(prompt("Ingrese el precio del producto"));
+		do {
 
-		while(precio < 100 || precio > 300 || isNaN(precio)){
-			precio = parseInt(prompt("Ingrese el precio del producto"));
-		}
+			precioDeProducto = parseInt(prompt("Ingrese precio de producto"));
 
-		cantidad = parseInt(prompt("Ingrese la cantidad de unidades"));
+		} while (precioDeProducto < 100 || precioDeProducto > 300)
 
-		while(cantidad < 0 || cantidad > 1000 || isNaN(cantidad)){
-			cantidad = parseInt(prompt("Ingrese la cantidad de unidades"));
-		}
+		do {
 
-		marca = prompt("Ingrese la marca del producto");
+			cantidadDeUnidadesDeProducto = parseInt(prompt("Ingrese cantidad de productos"));
 
-		fabricante = prompt("Ingrese el fabricante del producto");
+		} while (cantidadDeUnidadesDeProducto < 1 || cantidadDeUnidadesDeProducto > 1000)
 
-		switch (tipo) {
+		marcaDelProducto = prompt("ingrese marca del producto");
+
+		fabricanteDelProducto = prompt("ingrese fabricante del producto");
+
+		switch (tipoDeProdcuto) {
 			case "barbijo":
-				cantidadTotalBarbijos += cantidad;
-				cantidadDeComprasBarbijos++;
+				acumuladorBarbijo += cantidadDeUnidadesDeProducto;
+				contadorBarbijo++;
 				break;
-			case "jabón":
-				cantidadTotalJabones += cantidad;
-				cantidadDeComprasJabones++;
+			case "jabon":
+				acumuladorJabon += cantidadDeUnidadesDeProducto;
+				contadorJabon++;
 				break;
 			case "alcohol":
-				if (primerAlcohol == "si") {
-					alcoholMasBarato = precio;
-					cantidadAlcoholMasBarato = cantidad;
-					fabricanteAlcoholMasBarato = fabricante;
-					primerAlcohol = "no";
-				}else if(precio < alcoholMasBarato){
-					alcoholMasBarato = precio;
-					cantidadAlcoholMasBarato = cantidad;
-					fabricanteAlcoholMasBarato = fabricante;
+				acumuladorAlcohol += cantidadDeUnidadesDeProducto;
+				contadorAlcohol++;
+				if (flag == 0) {
+					precioAlcoholMasBarato = precioDeProducto;
+					cantidadAlcoholMasBarato = cantidadDeUnidadesDeProducto;
+					fabricanteAlcoholMasBarato = fabricanteDelProducto;
+					flag = 1;
+				} else if (precioAlcoholMasBarato > precioDeProducto) {
+					precioAlcoholMasBarato = precioDeProducto;
+					cantidadAlcoholMasBarato = cantidadDeUnidadesDeProducto;
+					fabricanteAlcoholMasBarato = fabricanteDelProducto;
 				}
-				cantidadTotalAlcohol += cantidad;
-				cantidadDeComprasAlcohol++;
 				break;
 		}
 	}
 
-	if(cantidadTotalAlcohol == 0){
-		alert("No hay alcohol");
-	}else{
-		alert("El alcohol mas barato es: " + fabricanteAlcoholMasBarato + " con un precio de: " + alcoholMasBarato + " y una cantidad de: " + cantidadAlcoholMasBarato);
+	//PUNTO A
+	if (acumuladorAlcohol != 0) {
+		alert(`del mas barato de los alcoholes se compro ${cantidadAlcoholMasBarato} unidades, y el fabricante es ${fabricanteAlcoholMasBarato}`);
+	} else {
+		alert("No se compraron alcoholes");
 	}
 
-	if(cantidadTotalJabones == 0){
-		alert("No hay jabones");
-	}else{
-		alert("La cantidad total de jabones es: " + cantidadTotalJabones);
+	//PUNTO B
+	if (acumuladorAlcohol > acumuladorBarbijo && acumuladorAlcohol > acumuladorJabon) {
+		promedioDeCompraMayorUnidades = acumuladorAlcohol / contadorAlcohol;
+		tipoConMasUnidades = "Alcohol";
+	} else if (acumuladorBarbijo > acumuladorJabon) {
+		promedioDeCompraMayorUnidades = acumuladorBarbijo / contadorBarbijo;
+		tipoConMasUnidades = "Barbijos";
+	} else {
+		promedioDeCompraMayorUnidades = acumuladorJabon / contadorJabon;
+		tipoConMasUnidades = "Jabones";
 	}
 
-	if(cantidadTotalAlcohol > cantidadTotalBarbijos && cantidadTotalAlcohol > cantidadTotalJabones){
+	alert(`El promedio por compra de ${tipoConMasUnidades} es ${promedioDeCompraMayorUnidades} unidades`);
 
-		alert("El tipo con mas unidades es alcohol con un promedio de compras del: " + (cantidadTotalAlcohol / cantidadDeComprasAlcohol) + " por compra");
+	//PUNTO C
+	alert(`${acumuladorJabon} Unidades de jabon`);
 
-	} else if(cantidadTotalBarbijos > cantidadTotalAlcohol && cantidadTotalBarbijos > cantidadTotalJabones){
 
-		alert("El tipo con mas unidades es barbijo con un promedio de compras del: " + (cantidadTotalBarbijos / cantidadDeComprasBarbijos) + " por compra");
-
-	} else if(cantidadTotalJabones > cantidadTotalAlcohol && cantidadTotalJabones > cantidadTotalBarbijos){
-
-		alert("El tipo con mas unidades es jabón con un promedio de compras del: " + (cantidadTotalJabones / cantidadDeComprasJabones) + " por compra");
-
-	}else{
-
-		alert("No hay un tipo con mas unidades");
-
-	}
 }
